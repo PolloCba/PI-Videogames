@@ -26,14 +26,6 @@ router.get("/", async (req, res) => {
         },
       });
     });
-    //(OPTIMIZADO) --> SOLO ENVIO AL FRONT LA INFO NECESARIA (nombre de los generos)
-    const genresFront = genres.map((e) => {
-      return {
-        id: e.id,
-        name: e.name,
-      };
-    });
-    res.json(genresFront);
   } catch (err) {
     return console.log(err);
   }
