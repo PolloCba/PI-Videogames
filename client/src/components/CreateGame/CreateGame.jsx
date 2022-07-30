@@ -4,15 +4,6 @@ import { postGame, getGenres, getPlatforms } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import stl from "./CreateGame.module.css";
 
-// function validate(input) {
-//   let error = {};
-//   if (!input.name) {
-//     error.name = "Por favor ingrese un Nombre para el Juego";
-//   } else if (!input.description) {
-//     error.description = "Por favor ingrese una descripcion del Juego";
-//   }
-// }
-
 export default function GameCreate() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -29,17 +20,19 @@ export default function GameCreate() {
     platforms: [],
   });
 
+  useEffect(() => {
+    dispatch(getPlatforms());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, [dispatch]);
+
   function handleChange(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
-    // setErrors(
-    //   validate({
-    //     ...input,
-    //     [e.target.name]: e.target.value,
-    //   })
-    // );
   }
 
   function handleSelect(e) {
@@ -68,49 +61,45 @@ export default function GameCreate() {
       genres: [],
       platforms: [],
     });
-    history.push("/videogames");
+    history.push("/home");
   }
 
   function handleDelete(e) {
     setInput({
       ...input,
       genres: input.genres.filter((g) => g !== e),
+      platforms: input.platforms.filter((p) => p !== e),
     });
   }
 
-  useEffect(() => {
-    dispatch(getGenres());
-  }, [dispatch]);
+  console.log(platforms);
+  console.log(genres);
 
   return (
-    <div>
-      <Link to="/videogames">
-        <button className={stl.bot2}>Volver</button>
-      </Link>
+    <div className={stl.avgwrapper}>
       <h1 className={stl.h1}>Crea tu Juego</h1>
       <form className={stl.formarea} onSubmit={handleSubmit}>
         <div className={stl.detailsarea}>
-          <label>Nombre</label>
+          <label>Nombre </label>
           <input
             type="text"
             value={input.name}
             name="name"
             onChange={(e) => handleChange(e)}
           />
-          {/* {errors.name && <p>{errors.name}</p>} */}
         </div>
         <div>
-          <label>Descripcion</label>
-          <input
+          <label>Descripcion </label>
+          <textarea
+            className={stl.description}
             type="text"
             name="description"
             value={input.description}
             onChange={(e) => handleChange(e)}
           />
-          {/* {errors.description && <p>{errors.description}</p>} */}
         </div>
         <div>
-          <label>Fecha de Lanzamiento</label>
+          <label>Fecha de Lanzamiento </label>
           <input
             type="date"
             name="releaseDate"
@@ -119,7 +108,7 @@ export default function GameCreate() {
           />
         </div>
         <div>
-          <label>Rating</label>
+          <label>Rating </label>
           <input
             type="text"
             name="rating"
@@ -135,21 +124,23 @@ export default function GameCreate() {
             ))}
           </select>
           <ul className="ul">
-            <li>{input.genres.map((g) => g + " ,")}</li>
+            <li>{input.genres.map((g) => g)}</li>
           </ul>
         </div>
         <div>
-          <label>Plataformas</label>
+          <label>Plataformas </label>
           <select onChange={handlePlatforms}>
             {platforms.map((p) => (
-              <option value={p.name}>{p.name}</option>
+              <option value={p}>{p}</option>
             ))}
           </select>
           <ul className="ul">
-            <li>{input.platforms.map((p) => p + " ,")}</li>
+            <li>{input.platforms.map((p) => p)}</li>
           </ul>
         </div>
-        <button type="submit">Crear Videojuego</button>
+        <button className={stl.submit} type="submit">
+          Crear Videojuego
+        </button>
       </form>
       {input.genres.map((e) => (
         <div>
@@ -159,6 +150,17 @@ export default function GameCreate() {
           </button>
         </div>
       ))}
+      {input.platforms.map((e) => (
+        <div>
+          <p>{e}</p>
+          <button className={stl.bot} onClick={() => handleDelete(e)}>
+            x
+          </button>
+        </div>
+      ))}
+      <Link to="/home">
+        <button className={stl.bot2}>Volver</button>
+      </Link>
     </div>
   );
 }

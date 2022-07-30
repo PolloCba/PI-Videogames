@@ -33,11 +33,9 @@ function rootReducer(state = initialState, action) {
         videogames: action.payload,
       };
     case GET_GENRES:
-      let genre = action.payload;
-      genre.unshift("All");
       return {
         ...state,
-        genres: genre,
+        genres: action.payload,
       };
     case GET_PLATFORMS:
       return {
@@ -64,10 +62,6 @@ function rootReducer(state = initialState, action) {
           videogames: genrefilter,
         };
       }
-    case "POST_GAME":
-      return {
-        ...state,
-      };
     case FILTER_CREATED:
       const originVg = state.vgfilter;
       const createdFilter =
@@ -119,6 +113,10 @@ function rootReducer(state = initialState, action) {
           videogames: sortedArr,
         };
       }
+    case "POST_GAME":
+      return {
+        ...state,
+      };
     default:
       return state;
   }

@@ -1,42 +1,45 @@
 .wrapper {
   display: flex;
-  margin: 1px;
-  width: 1260px;
+  margin: 0px;
   right: 20% auto;
-  /*  background: bisque;*/
 }
 .detimg {
-  display: flex;
-  margin-left: 200px;
+  align-self: center;
+  width: 80%;
+  height: 50%;
 }
 .contarea {
   display: flex;
   background: rgb(216, 189, 100);
   flex-direction: column;
-  justify-content: flex-end;
-  margin: 300px;
-  margin-top: 0px;
-  border: 3px solid rgb(128, 21, 95);
-  width: 900px;
+  justify-content: flex-start;
+  margin: 0px;
+  width: 100%;
 }
 
 h3 {
+  color: black;
   display: flex;
   justify-content: space-around;
   align-content: space-around;
   padding: 1px;
-  margin: 1px;
+  margin: 10px;
+}
+
+h5 {
+  width: 80%;
+  align-self: center;
 }
 p {
   display: flex;
-  justify-content: space-around;
-  align-content: space-around;
+  justify-content: center;
+  align-content: center;
   padding: 1px;
   margin: 1px;
 }
 .botback {
   padding: 1em;
-  margin-top: 5px;
+  margin-top: 25px;
   background: olive;
   color: black;
   border: 1;

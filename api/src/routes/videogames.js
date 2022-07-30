@@ -130,17 +130,13 @@ router.get("/", async (req, res) => {
         for (i = 0; i < p.genres.length; i++) {
           b.push(p.genres[i].name);
         }
-        // let c = [];
-        // for (j = 0; j < p.platform.length; j++) {
-        //   c.push(p.platform[j].name);
-        // }
         return {
           id: p.id,
           name: p.name,
           image: p.background_image,
           genres: b.toString(),
           rating: p.rating,
-          // platform: c.toString(),
+          platform: p.platforms.map((p) => p.platform.name),
           origin: "API",
         };
       });
@@ -170,19 +166,15 @@ router.get("/", async (req, res) => {
       for (i = 0; i < p.genres.length; i++) {
         b.push(p.genres[i].name);
       }
-      // let c = [];
-      // for (j = 0; j < p.platform.length; j++) {
-      //   c.push(p.platform[j].name);
-      // }
       return {
         id: p.id,
         name: p.name,
         image:
-          "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
+          "https://media.rawg.io/media/games/2d5/2d57e7ffa1e3af2fa34229bd1041461d.jpg",
         genres: b.toString(),
         createdInDb: true,
         rating: p.rating,
-        // platform: c.toString(),
+        platform: p.platforms,
         origin: "DB",
       };
     });
@@ -207,7 +199,6 @@ router.post("/", async (req, res) => {
     platforms,
   } = req.body;
   platforms = platforms.toString();
-  platforms = platforms.join(", ");
   let gameCreated = await Videogame.create({
     name,
     description,

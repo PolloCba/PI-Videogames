@@ -34,6 +34,15 @@ export function getNameGame(name) {
   };
 }
 
+export function getPlatforms() {
+  return async function (dispatch) {
+    var result = await axios.get("http://localhost:3001/platforms");
+    return dispatch({
+      type: GET_PLATFORMS,
+      payload: result.data,
+    });
+  };
+}
 export function getGenres() {
   return async function (dispatch) {
     var result = await axios.get("http://localhost:3001/genres");
@@ -44,13 +53,17 @@ export function getGenres() {
   };
 }
 
-export function postGame(payload) {
+export function getDetail(id) {
   return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/videogames",
-      payload
-    );
-    return response;
+    try {
+      var json = await axios.get(`http://localhost:3001/videogame/${id}`);
+      return dispatch({
+        type: GET_DETAILS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 export function genreFilter(payload) {
@@ -74,26 +87,12 @@ export function orderByName(payload) {
   };
 }
 
-export function getDetail(id) {
+export function postGame(payload) {
   return async function (dispatch) {
-    try {
-      var json = await axios.get(`http://localhost:3001/videogame/${id}`);
-      return dispatch({
-        type: GET_DETAILS,
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-export default function getPlatforms() {
-  return async function (dispatch) {
-    var result = await axios.get("http://localhost:3001/platforms");
-    return dispatch({
-      type: GET_PLATFORMS,
-      payload: result.data,
-    });
+    const response = await axios.post(
+      "http://localhost:3001/videogames",
+      payload
+    );
+    return response;
   };
 }

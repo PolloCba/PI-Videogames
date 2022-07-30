@@ -6,6 +6,7 @@ import {
   filterCreated,
   orderByName,
   genreFilter,
+  getGenres,
 } from "../../actions/index.js";
 import { Link } from "react-router-dom";
 import GameCard from "../GameCard/GameCard.jsx";
@@ -24,14 +25,25 @@ export default function Home() {
   const indexOfFirstGame = indexOfLastGame - gamesPerPage; // =0
   const currentGames = allGames.slice(indexOfFirstGame, indexOfLastGame);
 
-  console.log(genres);
-
   const paging = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
+  const [input, setInput] = useState({
+    name: "",
+    description: "",
+    releaseDate: "",
+    rating: "",
+    genres: [],
+    platforms: [],
+  });
+
   useEffect(() => {
     dispatch(getVideogames());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getGenres());
   }, [dispatch]);
 
   function handleClick(e) {
@@ -57,6 +69,7 @@ export default function Home() {
 
   return (
     <div>
+      <SearchBar />
       <Link to="/videogame">Crear Videojuego</Link>
       <h1>App de Videojuegos</h1>
       <button
@@ -64,7 +77,7 @@ export default function Home() {
           handleClick(e);
         }}
       >
-        Volver a cargar todos los Juegos
+        Mostrar los Juegos de la App
       </button>
       <div>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
@@ -73,10 +86,13 @@ export default function Home() {
           <option value="rating">Rating</option>
         </select>
         <select className={stl.hpfilter} onChange={(e) => handleGenreFilter(e)}>
-          {genres.sort().map((e) => {
-            return <option value={e}>{e}</option>;
-          })}
+          {genres.map((g) => (
+            <option value={g.name}>{g.name}</option>
+          ))}
         </select>
+        <ul className="ul">
+          <li>{input.genres.map((g) => g)}</li>
+        </ul>
         <select
           className={stl.hpfilter}
           onChange={(e) => handleFilterCreated(e)}
@@ -85,29 +101,27 @@ export default function Home() {
           <option value="created">Creados</option>
           <option value="api">Api</option>
         </select>
-        <div className={stl.c4}>
-          <Paging
-            gamesPerPage={gamesPerPage}
-            allGames={allGames.length}
-            paging={paging}
-          />
-        </div>
-        <SearchBar />
-        {currentGames?.map((e) => {
-          return (
-            <div className={stl.c5}>
+        <div className={stl.c5}>
+          {currentGames?.map((e) => {
+            return (
               <Link to={`/videogames/${e.id}`}>
                 <GameCard
                   name={e.name}
                   image={e.image}
-                  genres={e.genres}
-                  rating={e.rating}
+                  genres={"Generos --" + e.genres}
+                  rating={"Rating --" + e.rating}
                 />
-                ;
               </Link>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+      </div>
+      <div className={stl.c4}>
+        <Paging
+          gamesPerPage={gamesPerPage}
+          allGames={allGames.length}
+          paging={paging}
+        />
       </div>
     </div>
   );
