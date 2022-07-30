@@ -10,7 +10,7 @@
 }
 .contarea {
   display: flex;
-  background: rgb(216, 189, 100);
+  background-color: #fbc8d5;
   flex-direction: column;
   justify-content: flex-start;
   margin: 0px;
@@ -40,8 +40,8 @@ p {
 .botback {
   padding: 1em;
   margin-top: 25px;
-  background: olive;
-  color: black;
+  background: #9896f0;
+  color: whitesmoke;
   border: 1;
   height: 40px;
   border-color: black;
@@ -51,8 +51,9 @@ p {
   font-size: 16px;
   text-transform: uppercase;
   text-align: center;
+  cursor: pointer;
 }
 .botback:hover {
-  background-color: rgb(240, 134, 13);
-  color: rgb(63, 6, 6);
+  background-color: #dbd5ed;
+  color: black;
 }

@@ -119,23 +119,25 @@ export default function GameCreate() {
         <div>
           <label>Generos</label>
           <select onChange={(e) => handleSelect(e)}>
+            <option>Elegir...</option>
             {genres.map((g) => (
               <option value={g.name}>{g.name}</option>
             ))}
           </select>
           <ul className="ul">
-            <li>{input.genres.map((g) => g)}</li>
+            <li>{input.genres.map((g) => g + " , ")}</li>
           </ul>
         </div>
         <div>
           <label>Plataformas </label>
           <select onChange={handlePlatforms}>
+            <option>Elegir...</option>
             {platforms.map((p) => (
               <option value={p}>{p}</option>
             ))}
           </select>
           <ul className="ul">
-            <li>{input.platforms.map((p) => p)}</li>
+            <li>{input.platforms.map((p) => p + " , ")}</li>
           </ul>
         </div>
         <button className={stl.submit} type="submit">

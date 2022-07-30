@@ -1,3 +1,15 @@
+.container {
+  background-color: #dbd5ed;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .c1 {
   display: flex;
   flex-direction: column;
@@ -37,34 +49,49 @@
   justify-content: center;
   align-content: space-around;
   padding: 10px;
+  list-style: none;
+  text-decoration: none;
 }
 
 .hpbot {
-  background-color: darkslategrey;
-  color: whitesmoke;
+  text-align: center;
+  background-color: #fbc8d5;
+  color: black;
   padding-top: 1px;
   cursor: pointer;
   text-align: center;
   padding: 8px 24px;
+  border: 1px solid black;
   border-radius: 8px;
   transition-duration: 0.4s;
-  height: 60px;
+  text-decoration: none;
 }
 .hpbot:hover {
-  background-color: olive;
-  color: black;
+  background-color: #9896f0;
+  color: whitesmoke;
 }
 
 .hpfilter {
   margin-top: 8px;
-  border: 2px solid black;
+  color: black;
+  border: 1.5px solid black;
+  margin-right: 10px;
   width: 150px;
   height: 40px;
-  background-color: wheat;
-  cursor: grab;
+  background-color: #fbc8d5;
+  cursor: pointer;
+}
+
+.hpfilter:hover {
+  background-color: #9896f0;
+  color: whitesmoke;
 }
 
 .c6 {
   display: grid;
   grid-template-columns: auto, auto, auto;
+}
+
+.card {
+  text-decoration: none;
 }

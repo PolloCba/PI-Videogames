@@ -15,36 +15,6 @@ export default function Detail(props) {
 
   var myGame = useSelector((state) => state.detail);
 
-  console.log(myGame);
-
-  //   return (
-  //     <div className={stl.wrapper}>
-  //       {myGame.length > 0 ? (
-  //         <div className={stl.contarea}>
-  //           <h1>{myGame.name}</h1>
-  //           <img
-  //             className={stl.detimg}
-  //             src={myGame.image}
-  //             alt="Not found"
-  //             width="250px"
-  //             heigth="300px"
-  //           ></img>
-  //           <h3>Descripcion</h3>
-  //           <p>{myGame.description}</p>
-  //           <h4>{`Fecha Lanzamiento ${myGame.releaseDate}`}</h4>
-  //           <h4>{`Rating: ${myGame.rating}`}</h4>
-  //           <h4>{`Generos: ${myGame.genres}`}</h4>
-  //           <h4>{`Plataformas: ${myGame.platforms}`}</h4>
-  //         </div>
-  //       ) : (
-  //         <p>Loading...</p>
-  //       )}
-  //       <Link to="/home">
-  //         <button className={stl.botback}>Volver</button>
-  //       </Link>
-  //     </div>
-  //   );
-  // }
   return (
     <div className={stl.wrapper}>
       <div className={stl.contarea}>

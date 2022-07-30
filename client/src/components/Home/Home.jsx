@@ -68,24 +68,40 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <SearchBar />
-      <Link to="/videogame">Crear Videojuego</Link>
+    <div className={stl.container}>
       <h1>App de Videojuegos</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        Mostrar los Juegos de la App
-      </button>
+      <div className={stl.nav}>
+        <button
+          className={stl.hpbot}
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          Cargar los Juegos de la App
+        </button>
+        <SearchBar />
+        <Link className={stl.hpbot} to="/videogame">
+          Crear Videojuego
+        </Link>
+      </div>
       <div>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
+          <option>Ordenar...</option>
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
           <option value="rating">Rating</option>
         </select>
+        <select
+          className={stl.hpfilter}
+          onChange={(e) => handleFilterCreated(e)}
+        >
+          <option>Api + Db...</option>
+          <option value="all">Todos</option>
+          <option value="created">Creados</option>
+          <option value="api">Api</option>
+        </select>
         <select className={stl.hpfilter} onChange={(e) => handleGenreFilter(e)}>
+          <option>Generos...</option>
           {genres.map((g) => (
             <option value={g.name}>{g.name}</option>
           ))}
@@ -93,23 +109,17 @@ export default function Home() {
         <ul className="ul">
           <li>{input.genres.map((g) => g)}</li>
         </ul>
-        <select
-          className={stl.hpfilter}
-          onChange={(e) => handleFilterCreated(e)}
-        >
-          <option value="all">Todos</option>
-          <option value="created">Creados</option>
-          <option value="api">Api</option>
-        </select>
+      </div>
+      <div>
         <div className={stl.c5}>
           {currentGames?.map((e) => {
             return (
-              <Link to={`/videogames/${e.id}`}>
+              <Link className={stl.card} to={`/videogames/${e.id}`}>
                 <GameCard
                   name={e.name}
                   image={e.image}
-                  genres={"Generos --" + e.genres}
-                  rating={"Rating --" + e.rating}
+                  genres={"Generos -- " + e.genres}
+                  rating={"Rating -- " + e.rating}
                 />
               </Link>
             );

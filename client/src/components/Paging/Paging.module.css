@@ -5,17 +5,19 @@
 }
 
 .pagenr {
-  border: 1px solid blue;
+  border: 1px solid black;
   display: inline-block;
+  margin-right: 35px;
   height: 22px;
   width: 20px;
   color: rgb(15, 3, 1);
-  background-color: rgb(199, 199, 199);
+  background-color: #fbc8d5;
   padding: 2px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 8x;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .pagenr:hover {
-  background-color: rgb(26, 145, 85);
+  background-color: #9896f0;
+  color: whitesmoke;
 }
