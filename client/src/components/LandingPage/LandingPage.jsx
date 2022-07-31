@@ -8,7 +8,9 @@ export default function LandingPage() {
       <div>
         <h1 className={stl.title}>Welcome</h1>
         <Link to="/home">
-          <button className={stl.but}>Ingresar</button>
+          <button type="submit" className={stl.but}>
+            Ingresar
+          </button>
         </Link>
       </div>
     </div>

@@ -1,6 +1,14 @@
-.avgwrapper {
-  width: 100%;
+.container {
   background-color: #dbd5ed;
+  width: auto;
+  height: auto;
+}
+
+.avgwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -11,14 +19,16 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .formarea {
-  width: 60%;
+  width: 50%;
+  height: 70%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #fbc8d5;
   border-radius: 25px;
-  margin-top: 80px;
-  margin-left: 250px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border: 3px solid #9896f0;
   box-shadow: 4px 3px 6px 2px #9896f0;
 }
@@ -77,7 +87,8 @@ ul {
 .bot2 {
   background-color: #fbc8d5;
   color: black;
-  margin-top: 6.6%;
+  margin-top: 60px;
+  margin-bottom: 50px;
   padding-top: 1px;
   cursor: pointer;
   text-align: center;
@@ -91,10 +102,11 @@ ul {
 }
 
 .submit {
-  margin-top: 10px;
+  margin-top: 80px;
   margin-bottom: 20px;
   align-self: center;
   width: 15%;
+  height: 50px;
   border-radius: 8px;
   background-color: #9896f0;
   color: whitesmoke;

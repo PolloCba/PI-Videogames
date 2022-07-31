@@ -129,97 +129,101 @@ export default function GameCreate() {
   console.log(genres);
 
   return (
-    <div className={stl.avgwrapper}>
-      <h1 className={stl.h1}>Crea tu Juego</h1>
-      <form className={stl.formarea} onSubmit={handleSubmit}>
-        <div className={stl.detailsarea}>
-          <label>Nombre </label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            placeholder="Ingrese nombre del juego"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.name && <p className={stl.error}> {errors.name} </p>}
-        </div>
-        <div>
-          <label>Descripción </label>
-          <textarea
-            className={stl.description}
-            type="text"
-            name="description"
-            value={input.description}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label>Fecha de Lanzamiento </label>
-          <input
-            type="date"
-            name="releaseDate"
-            value={input.releaseDate}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label>Rating </label>
-          <input
-            type="text"
-            name="rating"
-            value={input.rating}
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.rating && <p className={stl.error}> {errors.rating} </p>}
-        </div>
-        <div>
-          <label>Generos </label>
-          <select onChange={(e) => handleSelect(e)}>
-            <option>Elegir...</option>
-            {genres.map((g) => (
-              <option value={g.name}>{g.name}</option>
-            ))}
-          </select>
-          <ul className="ul">
-            <li>{input.genres.map((g) => g + " , ")}</li>
-          </ul>
-        </div>
-        <div>
-          <label>Plataformas </label>
-          <select onChange={handlePlatforms}>
-            <option>Elegir...</option>
-            {platforms.map((p) => (
-              <option value={p}>{p}</option>
-            ))}
-          </select>
-          <ul className="ul">
-            <li>{input.platforms.map((p) => p + " , ")}</li>
-          </ul>
-          {errors.platform && <p className={stl.error}> {errors.platform} </p>}
-        </div>
-        <button className={stl.submit} type="submit">
-          Crear Videojuego
-        </button>
-      </form>
-      {input.genres.map((e) => (
-        <div>
-          <p>{e}</p>
-          <button className={stl.bot} onClick={() => handleDelete(e)}>
-            x
+    <div className={stl.container}>
+      <div className={stl.avgwrapper}>
+        <h1 className={stl.h1}>Crea tu Juego</h1>
+        <form className={stl.formarea} onSubmit={handleSubmit}>
+          <div className={stl.detailsarea}>
+            <label>Nombre </label>
+            <input
+              type="text"
+              value={input.name}
+              name="name"
+              placeholder="Ingrese nombre del juego"
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.name && <p className={stl.error}> {errors.name} </p>}
+          </div>
+          <div>
+            <label>Descripción </label>
+            <textarea
+              className={stl.description}
+              type="text"
+              name="description"
+              value={input.description}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div>
+            <label>Fecha de Lanzamiento </label>
+            <input
+              type="date"
+              name="releaseDate"
+              value={input.releaseDate}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div>
+            <label>Rating </label>
+            <input
+              type="text"
+              name="rating"
+              value={input.rating}
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.rating && <p className={stl.error}> {errors.rating} </p>}
+          </div>
+          <div>
+            <label>Generos </label>
+            <select onChange={(e) => handleSelect(e)}>
+              <option>Elegir...</option>
+              {genres.map((g) => (
+                <option value={g.name}>{g.name}</option>
+              ))}
+            </select>
+            <ul className="ul">
+              <li>{input.genres.map((g) => g + " , ")}</li>
+            </ul>
+          </div>
+          <div>
+            <label>Plataformas </label>
+            <select onChange={handlePlatforms}>
+              <option>Elegir...</option>
+              {platforms.map((p) => (
+                <option value={p}>{p}</option>
+              ))}
+            </select>
+            <ul className="ul">
+              <li>{input.platforms.map((p) => p + " , ")}</li>
+            </ul>
+            {errors.platform && (
+              <p className={stl.error}> {errors.platform} </p>
+            )}
+          </div>
+          <button className={stl.submit} type="submit">
+            Crear Videojuego
           </button>
-        </div>
-      ))}
-      {input.platforms.map((e) => (
-        <div>
-          <p>{e}</p>
-          <button className={stl.bot} onClick={() => handleDelete(e)}>
-            x
-          </button>
-        </div>
-      ))}
-      <Link to="/home">
-        <button className={stl.bot2}>Volver</button>
-      </Link>
+        </form>
+        {input.genres.map((e) => (
+          <div>
+            <p>{e}</p>
+            <button className={stl.bot} onClick={() => handleDelete(e)}>
+              x
+            </button>
+          </div>
+        ))}
+        {input.platforms.map((e) => (
+          <div>
+            <p>{e}</p>
+            <button className={stl.bot} onClick={() => handleDelete(e)}>
+              x
+            </button>
+          </div>
+        ))}
+        <Link to="/home">
+          <button className={stl.bot2}>Volver</button>
+        </Link>
+      </div>
     </div>
   );
 }

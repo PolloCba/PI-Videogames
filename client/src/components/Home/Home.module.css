@@ -101,3 +101,20 @@
 .card:hover {
   transform: scale(1.1);
 }
+
+.bot2 {
+  background-color: #fbc8d5;
+  color: black;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding-top: 1px;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px 24px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+.bot2:hover {
+  background-color: #9896f0;
+  color: whitesmoke;
+}

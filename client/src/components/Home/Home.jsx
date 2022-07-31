@@ -88,8 +88,8 @@ export default function Home() {
       <div>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
           <option>Ordenar...</option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
+          <option value="asc">Ascendente A-Z</option>
+          <option value="desc">Descendente Z-A</option>
           <option value="ratingMayor">Mayor Rating</option>
           <option value="ratingMenor">Menor Rating</option>
         </select>
@@ -135,6 +135,9 @@ export default function Home() {
           paging={paging}
         />
       </div>
+      <Link to="/">
+        <button className={stl.bot2}>Página de Inicio</button>
+      </Link>
     </div>
   );
 }
