@@ -80,6 +80,7 @@
   height: 40px;
   background-color: #fbc8d5;
   cursor: pointer;
+  transition-duration: 0.4s;
 }
 
 .hpfilter:hover {
@@ -94,4 +95,9 @@
 
 .card {
   text-decoration: none;
+  transition: 0.5s all;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }

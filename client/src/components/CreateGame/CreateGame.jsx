@@ -4,6 +4,35 @@ import { postGame, getGenres, getPlatforms } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import stl from "./CreateGame.module.css";
 
+function validate(input) {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "Nombre del juego requerido";
+  } else if (input.name.length < 4) {
+    errors.name = "El juego debe tener al menos 4 letras";
+  }
+  if (!input.description) {
+    errors.description = "Descripcion del juego requerida";
+  } else if (input.description.length < 8) {
+    errors.description = "La descripcion debe tener al menos 8 letras";
+  }
+  if (!input.releaseDate) {
+    errors.releaseDate = "Ingrese una fecha de lanzamiento";
+  } else if (
+    !/^(?:3[01]|[12][0-9]|0?[1-9])([-/.])(0?[1-9]|1[1-2])\1\d{4}$/.test(
+      input.releaseDate
+    )
+  ) {
+    errors.releaseDate = "Ingrese un formato y fecha valida";
+  }
+  if (!input.rating) {
+    errors.rating = "El rating es requerido";
+  } else if (!/^[1-5]$/.test(input.rating)) {
+    errors.rating = "El rating debe ser entre 0 - 5";
+  }
+  return errors;
+}
+
 export default function GameCreate() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,6 +62,12 @@ export default function GameCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSelect(e) {
@@ -51,6 +86,24 @@ export default function GameCreate() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!input.name) {
+      return alert("Ingrese un nombre");
+    }
+    if (!input.description) {
+      return alert("Ingrese una descripción");
+    }
+    if (!input.releaseDate) {
+      return alert("Ingrese una fecha de lanzamiento");
+    }
+    if (!input.rating) {
+      return alert("Ingrese el rating");
+    }
+    if (input.genres.length === 0) {
+      return alert("Ingrese algun genero");
+    }
+    if (input.platforms.length === 0) {
+      return alert("Ingrese alguna plataforma");
+    }
     dispatch(postGame(input));
     alert("Juego Creado!!!");
     setInput({
@@ -85,11 +138,13 @@ export default function GameCreate() {
             type="text"
             value={input.name}
             name="name"
+            placeholder="Ingrese nombre del juego"
             onChange={(e) => handleChange(e)}
           />
+          {errors.name && <p className={stl.error}> {errors.name} </p>}
         </div>
         <div>
-          <label>Descripcion </label>
+          <label>Descripción </label>
           <textarea
             className={stl.description}
             type="text"
@@ -115,9 +170,10 @@ export default function GameCreate() {
             value={input.rating}
             onChange={(e) => handleChange(e)}
           />
+          {errors.rating && <p className={stl.error}> {errors.rating} </p>}
         </div>
         <div>
-          <label>Generos</label>
+          <label>Generos </label>
           <select onChange={(e) => handleSelect(e)}>
             <option>Elegir...</option>
             {genres.map((g) => (
@@ -139,6 +195,7 @@ export default function GameCreate() {
           <ul className="ul">
             <li>{input.platforms.map((p) => p + " , ")}</li>
           </ul>
+          {errors.platform && <p className={stl.error}> {errors.platform} </p>}
         </div>
         <button className={stl.submit} type="submit">
           Crear Videojuego

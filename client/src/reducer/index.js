@@ -73,13 +73,27 @@ function rootReducer(state = initialState, action) {
         videogames: action.payload === "all" ? state.vgfilter : createdFilter,
       };
     case ORDER_BY_NAME:
-      if (action.payload === "rating") {
+      if (action.payload === "ratingMayor") {
         let sortedArr = state.videogames.sort(function (a, b) {
           if (a.rating > b.rating) {
             return -1;
           }
           if (b.rating > a.rating) {
             return 1;
+          }
+          return 0;
+        });
+        return {
+          ...state,
+          videogames: sortedArr,
+        };
+      } else if (action.payload === "ratingMenor") {
+        let sortedArr = state.videogames.sort(function (a, b) {
+          if (a.rating > b.rating) {
+            return 1;
+          }
+          if (b.rating > a.rating) {
+            return -1;
           }
           return 0;
         });

@@ -16,6 +16,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 8x;
   border-radius: 5px;
+  transition-duration: 0.4s;
 }
 .pagenr:hover {
   background-color: #9896f0;

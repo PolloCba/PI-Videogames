@@ -90,7 +90,8 @@ export default function Home() {
           <option>Ordenar...</option>
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
-          <option value="rating">Rating</option>
+          <option value="ratingMayor">Mayor Rating</option>
+          <option value="ratingMenor">Menor Rating</option>
         </select>
         <select
           className={stl.hpfilter}

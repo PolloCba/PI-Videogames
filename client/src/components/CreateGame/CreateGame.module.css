@@ -1,76 +1,83 @@
 .avgwrapper {
-  width: 800px;
-  margin: 2% auto;
+  width: 100%;
+  background-color: #dbd5ed;
 }
 
 h1 {
   color: rgb(8, 7, 8);
-  position: relative;
   margin: 0px;
+  padding-top: 15px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .formarea {
+  width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background: rgb(13, 159, 179);
+  align-items: center;
+  background-color: #fbc8d5;
   border-radius: 25px;
-  padding: 1.9em;
-  margin-top: 30px;
-  border: 3px solid rgb(12, 76, 173);
-  box-shadow: 4px 3px 6px 2px rgb(41, 233, 240);
+  margin-top: 80px;
+  margin-left: 250px;
+  border: 3px solid #9896f0;
+  box-shadow: 4px 3px 6px 2px #9896f0;
 }
-h3 {
-  margin: 0px;
-  color: #fff;
+
+.detailsarea {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .detailsarea input {
   align-items: flex-start;
-  width: 50%;
+  width: 300px;
   background: transparent;
-  color: #fff;
+  color: black;
   border-radius: 10px;
-  margin-right: 170px;
-  border: 2px solid white;
+  border: 2px solid black;
   font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
 }
 .detailsarea input,
 label {
-  color: #fff;
+  color: black;
   line-height: 30px;
-  font-family: Audiowide;
 }
 
 .description {
-  align-items: flex-start;
-  width: 100%;
-  height: 150%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  background: transparent;
+  width: 300px;
+  height: 50px;
 }
 
 ul {
-  color: #fff;
+  color: black;
+  list-style-type: none;
 }
+
 .bot {
-  background-color: olive;
-  color: whitesmoke;
+  background-color: #fbc8d5;
+  color: black;
   padding-top: 1px;
   cursor: pointer;
-  text-align: center;
   padding: 8px 24px;
   border-radius: 8px;
   transition-duration: 0.4s;
-  width: 150px;
-  align-self: flex-end;
 }
 .bot:hover {
-  background-color: rgb(190, 190, 64);
-  color: black;
-}
-.bot2 {
-  background-color: rgb(185, 135, 28);
+  background-color: #9896f0;
   color: whitesmoke;
+}
+
+.bot2 {
+  background-color: #fbc8d5;
+  color: black;
+  margin-top: 6.6%;
   padding-top: 1px;
   cursor: pointer;
   text-align: center;
@@ -79,20 +86,26 @@ ul {
   transition-duration: 0.4s;
 }
 .bot2:hover {
-  background-color: rgb(238, 205, 135);
-  color: black;
+  background-color: #9896f0;
+  color: whitesmoke;
 }
 
 .submit {
+  margin-top: 10px;
+  margin-bottom: 20px;
   align-self: center;
   width: 15%;
+  border-radius: 8px;
+  background-color: #9896f0;
+  color: whitesmoke;
+  transition: 0.5s all;
 }
 
-ul {
-  list-style-type: none;
+.submit:hover {
+  transform: scale(1.1);
+  color: black;
 }
 
 .error {
-  border: 3px solid red;
-  color: rgb(145, 6, 34);
+  color: red;
 }

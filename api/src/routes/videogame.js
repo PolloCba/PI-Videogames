@@ -49,7 +49,7 @@ router.get("/:idVideogame", async (req, res) => {
         name,
         background_image,
         genres,
-        description,
+        description: description.replace(/<[^>]+>/g, ""),
         releaseDate,
         rating,
         platforms,
