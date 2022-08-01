@@ -27,7 +27,7 @@ function validate(input) {
   }
   if (!input.rating) {
     errors.rating = "El rating es requerido";
-  } else if (!/^[1-5]$/.test(input.rating)) {
+  } else if (!/^[0-5]+([.][0-9]+)?$/.test(input.rating)) {
     errors.rating = "El rating debe ser entre 0 - 5";
   }
   return errors;
@@ -98,6 +98,9 @@ export default function GameCreate() {
     if (!input.rating) {
       return alert("Ingrese el rating");
     }
+    if (input.rating < 0 || input.rating > 5) {
+      return alert("Ingrese un rating valido");
+    }
     if (input.genres.length === 0) {
       return alert("Ingrese algun genero");
     }
@@ -124,9 +127,6 @@ export default function GameCreate() {
       platforms: input.platforms.filter((p) => p !== e),
     });
   }
-
-  console.log(platforms);
-  console.log(genres);
 
   return (
     <div className={stl.container}>

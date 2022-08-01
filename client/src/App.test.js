@@ -1,8 +1,47 @@
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import React from "react";
+import { configure, mount } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+import { MemoryRouter } from "react-router-dom";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from "./App";
+import Home from "../src/components/Home/Home.jsx";
+import LandingPage from "../src/components/LandingPage/LandingPage.jsx";
+
+configure({ adapter: new Adapter() });
+
+describe("App", () => {
+  let store;
+  const middlewares = [];
+  const mockStore = configureStore(middlewares);
+
+  beforeEach(() => {
+    store = mockStore([]);
+  });
+
+  describe("El componente LandingPage debe renderizar en todas las rutas.", () => {
+    it('Debería renderizarse en la ruta "/"', () => {
+      const wrapper = mount(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/"]}>
+            <App />
+          </MemoryRouter>
+        </Provider>
+      );
+      expect(wrapper.find(LandingPage)).toHaveLength(1);
+    });
+  });
+
+  it('El componente Home debe renderizar en la ruta /home (Sólo en la ruta "/home")', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={["/home"]}>
+          <App />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    expect(wrapper.find(Home)).toHaveLength(0);
+  });
 });

@@ -5,8 +5,8 @@ import stl from "./Paging.module.css";
 export default function Paging({ gamesPerPage, allGames, paging }) {
   const pageNumbers = [];
 
-  for (let i = 0; i <= Math.ceil(allGames / gamesPerPage); i++) {
-    pageNumbers.push(i + 1);
+  for (let i = 1; i <= Math.ceil(allGames / gamesPerPage); i++) {
+    pageNumbers.push(i);
   }
   return (
     <nav>

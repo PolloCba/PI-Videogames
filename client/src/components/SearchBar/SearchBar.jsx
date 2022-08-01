@@ -16,6 +16,9 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!name) {
+      alert("Ingrese el nombre de un Juego");
+    }
     dispatch(getNameGame(name));
   }
 

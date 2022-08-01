@@ -78,7 +78,7 @@ export default function Home() {
             handleClick(e);
           }}
         >
-          Cargar los Juegos de la App
+          Recargar los Juegos de la App
         </button>
         <SearchBar />
         <Link className={stl.hpbot} to="/videogame">

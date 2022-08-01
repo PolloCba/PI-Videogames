@@ -1,8 +1,7 @@
 .sbcontainer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  padding: 10px;
+  padding-right: 55px;
 }
 .sbbot {
   background-color: #fbc8d5;
@@ -20,7 +19,7 @@
 }
 .sbinput {
   background-color: #fbc8d5;
-  margin-right: 5px;
+  margin-right: 10px;
   border: 2px solid black;
   width: 250px;
 }
