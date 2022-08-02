@@ -23,7 +23,7 @@ export default function Detail(props) {
         </div>
         <img
           className={stl.detimg}
-          src={myGame.background_image}
+          src={myGame.background_image ? myGame.background_image : myGame.image}
           alt="Not found"
         ></img>
         <h3>Descripción</h3>

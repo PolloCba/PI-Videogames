@@ -169,8 +169,7 @@ router.get("/", async (req, res) => {
       return {
         id: p.id,
         name: p.name,
-        image:
-          "https://media.rawg.io/media/games/2d5/2d57e7ffa1e3af2fa34229bd1041461d.jpg",
+        image: p.image,
         genres: b.toString(),
         createdInDb: true,
         rating: p.rating,
@@ -192,6 +191,7 @@ router.post("/", async (req, res) => {
   let {
     name,
     description,
+    image,
     releaseDate,
     rating,
     createdInDb,
@@ -202,6 +202,7 @@ router.post("/", async (req, res) => {
   let gameCreated = await Videogame.create({
     name,
     description,
+    image,
     releaseDate,
     rating,
     createdInDb,

@@ -87,31 +87,52 @@ export default function Home() {
       </div>
       <div>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
-          <option>Ordenar...</option>
-          <option value="asc">Ascendente A-Z</option>
-          <option value="desc">Descendente Z-A</option>
-          <option value="ratingMayor">Mayor Rating</option>
-          <option value="ratingMenor">Menor Rating</option>
+          <option key="orden">Ordenar...</option>
+          <option key="asc" value="asc">
+            Ascendente A-Z
+          </option>
+          <option key="desc" value="desc">
+            Descendente Z-A
+          </option>
+          <option key="ratingMayor" value="ratingMayor">
+            Mayor Rating
+          </option>
+          <option key="ratingMenor" value="ratingMenor">
+            Menor Rating
+          </option>
         </select>
         <select
           className={stl.hpfilter}
           onChange={(e) => handleFilterCreated(e)}
         >
-          <option>Api + Db...</option>
-          <option value="all">Todos</option>
-          <option value="created">Creados</option>
-          <option value="api">Api</option>
+          <option key="Api+Db">Api + Db...</option>
+          <option key="all" value="all">
+            Todos
+          </option>
+          <option key="created" value="created">
+            Creados
+          </option>
+          <option key="api" value="api">
+            Api
+          </option>
         </select>
         <select className={stl.hpfilter} onChange={(e) => handleGenreFilter(e)}>
-          <option>Generos...</option>
+          <option key="genres">Generos...</option>
           {genres.map((g) => (
-            <option value={g.name}>{g.name}</option>
+            <option key={g.name} value={g.name}>
+              {g.name}
+            </option>
           ))}
         </select>
         <ul className="ul">
-          <li>{input.genres.map((g) => g)}</li>
+          <li key="genresLi">{input.genres.map((g) => g)}</li>
         </ul>
       </div>
+      <Paging
+        gamesPerPage={gamesPerPage}
+        allGames={allGames.length}
+        paging={paging}
+      />
       <div>
         <div className={stl.c5}>
           {currentGames?.map((e) => {
@@ -128,13 +149,7 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className={stl.c4}>
-        <Paging
-          gamesPerPage={gamesPerPage}
-          allGames={allGames.length}
-          paging={paging}
-        />
-      </div>
+      <div className={stl.c4}></div>
       <Link to="/">
         <button className={stl.bot2}>Página de Inicio</button>
       </Link>

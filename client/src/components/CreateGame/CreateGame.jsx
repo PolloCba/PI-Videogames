@@ -45,6 +45,7 @@ export default function GameCreate() {
     description: "",
     releaseDate: "",
     rating: "",
+    image: "",
     genres: [],
     platforms: [],
   });
@@ -107,6 +108,9 @@ export default function GameCreate() {
     if (input.platforms.length === 0) {
       return alert("Ingrese alguna plataforma");
     }
+    if (!input.image) {
+      return alert("Ingrese alguna imagen para el juego");
+    }
     dispatch(postGame(input));
     alert("Juego Creado!!!");
     setInput({
@@ -114,6 +118,7 @@ export default function GameCreate() {
       description: "",
       releaseDate: "",
       rating: "",
+      image: "",
       genres: [],
       platforms: [],
     });
@@ -176,29 +181,42 @@ export default function GameCreate() {
           <div>
             <label>Generos </label>
             <select onChange={(e) => handleSelect(e)}>
-              <option>Elegir...</option>
+              <option key="genresEl">Elegir...</option>
               {genres.map((g) => (
-                <option value={g.name}>{g.name}</option>
+                <option key={g.name} value={g.name}>
+                  {g.name}
+                </option>
               ))}
             </select>
             <ul className="ul">
-              <li>{input.genres.map((g) => g + " , ")}</li>
+              <li key={genres}>{input.genres.map((g) => g + " , ")}</li>
             </ul>
           </div>
           <div>
             <label>Plataformas </label>
             <select onChange={handlePlatforms}>
-              <option>Elegir...</option>
+              <option key="platfomsEl">Elegir...</option>
               {platforms.map((p) => (
-                <option value={p}>{p}</option>
+                <option key={p} value={p}>
+                  {p}
+                </option>
               ))}
             </select>
             <ul className="ul">
-              <li>{input.platforms.map((p) => p + " , ")}</li>
+              <li key={platforms}>{input.platforms.map((p) => p + " , ")}</li>
             </ul>
             {errors.platform && (
               <p className={stl.error}> {errors.platform} </p>
             )}
+          </div>
+          <div>
+            <label>Imagen </label>
+            <input
+              type="text"
+              value={input.image}
+              name="image"
+              onChange={(e) => handleChange(e)}
+            />
           </div>
           <button className={stl.submit} type="submit">
             Crear Videojuego

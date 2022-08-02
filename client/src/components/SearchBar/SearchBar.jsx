@@ -20,6 +20,7 @@ export default function SearchBar() {
       alert("Ingrese el nombre de un Juego");
     }
     dispatch(getNameGame(name));
+    setName("");
   }
 
   return (
@@ -28,6 +29,7 @@ export default function SearchBar() {
         className={stl.sbinput}
         type="text"
         placeholder="Buscar Juego"
+        value={name}
         onChange={(e) => handleInputChange(e)}
       />
       <button
