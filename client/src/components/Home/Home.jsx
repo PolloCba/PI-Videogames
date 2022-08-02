@@ -87,7 +87,9 @@ export default function Home() {
       </div>
       <div>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
-          <option key="orden">Ordenar...</option>
+          <option key="orden" value="asc">
+            Ordenar...
+          </option>
           <option key="asc" value="asc">
             Ascendente A-Z
           </option>
@@ -105,7 +107,9 @@ export default function Home() {
           className={stl.hpfilter}
           onChange={(e) => handleFilterCreated(e)}
         >
-          <option key="Api+Db">Api + Db...</option>
+          <option key="Api+Db" value="all">
+            Api + Db...
+          </option>
           <option key="all" value="all">
             Todos
           </option>
