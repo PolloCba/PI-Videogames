@@ -5,20 +5,20 @@ const router = Router();
 const axios = require("axios").default;
 const { Genre } = require("../db");
 
-//TODO -----> GET a "/genres" <--------
+// GET a "/genres"
 
 router.get("/", async (req, res) => {
   try {
-    // si ya los tengo cargados en la DB los consumo desde alli.
+    // Busco en la db.
     const dbGenres = await Genre.findAll();
     if (dbGenres.length) return res.json(dbGenres);
 
-    //else --> los voy a buscar a la API
+    //sino busco en la API
     const apiGenres = await axios.get(
       `https://api.rawg.io/api/genres?key=${API_KEY}`
     );
-    const genres = apiGenres.data.results; // recibo un array de objetos, con los juego filtrados por GENERO
-    //los guardo en la DB filtrando solo el nombre
+    const genres = apiGenres.data.results; //
+    //Guardo los generos en la DB filtrando solo el nombre
     genres.forEach((e) => {
       Genre.findOrCreate({
         where: {

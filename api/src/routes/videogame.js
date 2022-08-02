@@ -5,13 +5,13 @@ const router = Router();
 const axios = require("axios").default;
 const { Videogame, Genre } = require("../db");
 
-//TODO  ------> GET /videogame/:idVideoGame <-------
+//GET /videogame/:idVideoGame
 
-// consulto el detalle del juego por el ID
+//Consulto el detalle del juego por su ID
 router.get("/:idVideogame", async (req, res) => {
   const { idVideogame } = req.params;
 
-  //verifico si es un juego creado y me trae el detalle de la DB
+  //Si es un juego creado, me trae el detalle de la DB
   if (idVideogame.includes("-")) {
     let videogameDb = await Videogame.findOne({
       where: {
@@ -23,11 +23,11 @@ router.get("/:idVideogame", async (req, res) => {
     videogameDb = JSON.stringify(videogameDb);
     videogameDb = JSON.parse(videogameDb);
 
-    //dejo un array con los nombres de genero solamente
+    //Dejo un array con los nombres de genero solamente
     videogameDb.genres = videogameDb.genres.map((g) => g.name);
     res.json(videogameDb);
   } else {
-    //else (si no es un juego creado, voy a buscar la info a la API)
+    //Si no es un juego creado, voy a buscar la info a la API
     try {
       const response = await axios.get(
         `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`

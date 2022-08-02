@@ -3,7 +3,7 @@ const { API_KEY } = process.env;
 const router = express.Router();
 const axios = require("axios");
 
-//Search all videogames platforms
+//Busco todas las plataformas
 router.get("/", async (req, res) => {
   const apiresult = await axios.get(
     `https://api.rawg.io/api/platforms?key=${API_KEY}`
