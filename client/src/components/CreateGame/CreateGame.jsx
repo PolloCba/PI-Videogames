@@ -226,7 +226,7 @@ export default function GameCreate() {
           <div>
             <p>{e}</p>
             <button className={stl.bot} onClick={() => handleDelete(e)}>
-              x
+              Eliminar
             </button>
           </div>
         ))}
@@ -234,7 +234,7 @@ export default function GameCreate() {
           <div>
             <p>{e}</p>
             <button className={stl.bot} onClick={() => handleDelete(e)}>
-              x
+              Eliminar
             </button>
           </div>
         ))}
