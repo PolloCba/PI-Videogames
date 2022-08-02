@@ -152,8 +152,12 @@ export default function Home() {
             );
           })}
         </div>
+        <Paging
+          gamesPerPage={gamesPerPage}
+          allGames={allGames.length}
+          paging={paging}
+        />
       </div>
-      <div className={stl.c4}></div>
       <Link to="/">
         <button className={stl.bot2}>Página de Inicio</button>
       </Link>

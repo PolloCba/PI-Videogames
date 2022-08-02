@@ -93,6 +93,9 @@ export default function GameCreate() {
     if (!input.description) {
       return alert("Ingrese una descripción");
     }
+    if (!input.image) {
+      return alert("Ingrese alguna imagen para el juego");
+    }
     if (!input.releaseDate) {
       return alert("Ingrese una fecha de lanzamiento");
     }
@@ -107,9 +110,6 @@ export default function GameCreate() {
     }
     if (input.platforms.length === 0) {
       return alert("Ingrese alguna plataforma");
-    }
-    if (!input.image) {
-      return alert("Ingrese alguna imagen para el juego");
     }
     dispatch(postGame(input));
     alert("Juego Creado!!!");
@@ -155,11 +155,22 @@ export default function GameCreate() {
               className={stl.description}
               type="text"
               name="description"
+              placeholder="Ingrese descripcion del juego"
               value={input.description}
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div>
+          <div className={stl.campos}>
+            <label>Imagen </label>
+            <input
+              type="text"
+              value={input.image}
+              name="image"
+              placeholder="Ingrese la URL de la imagen"
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className={stl.campos}>
             <label>Fecha de Lanzamiento </label>
             <input
               type="date"
@@ -168,17 +179,18 @@ export default function GameCreate() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div>
+          <div className={stl.campos}>
             <label>Rating </label>
             <input
               type="text"
               name="rating"
+              className={stl.rating}
               value={input.rating}
               onChange={(e) => handleChange(e)}
             />
             {errors.rating && <p className={stl.error}> {errors.rating} </p>}
           </div>
-          <div>
+          <div className={stl.campos}>
             <label>Generos </label>
             <select onChange={(e) => handleSelect(e)}>
               <option key="genresEl">Elegir...</option>
@@ -192,7 +204,7 @@ export default function GameCreate() {
               <li key={genres}>{input.genres.map((g) => g + " , ")}</li>
             </ul>
           </div>
-          <div>
+          <div className={stl.campos}>
             <label>Plataformas </label>
             <select onChange={handlePlatforms}>
               <option key="platfomsEl">Elegir...</option>
@@ -208,15 +220,6 @@ export default function GameCreate() {
             {errors.platform && (
               <p className={stl.error}> {errors.platform} </p>
             )}
-          </div>
-          <div>
-            <label>Imagen </label>
-            <input
-              type="text"
-              value={input.image}
-              name="image"
-              onChange={(e) => handleChange(e)}
-            />
           </div>
           <button className={stl.submit} type="submit">
             Crear Videojuego

@@ -70,6 +70,15 @@ ul {
   list-style-type: none;
 }
 
+.campos {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  width: 40px;
+}
+
 .bot {
   background-color: #fbc8d5;
   color: black;
