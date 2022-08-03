@@ -161,6 +161,9 @@ export default function GameCreate() {
               value={input.description}
               onChange={(e) => handleChange(e)}
             />
+            {errors.description && (
+              <p className={stl.error}> {errors.description} </p>
+            )}
           </div>
           <div className={stl.campos}>
             <label>Imagen </label>
@@ -182,6 +185,9 @@ export default function GameCreate() {
               value={input.releaseDate}
               onChange={(e) => handleChange(e)}
             />
+            {errors.releaseDate && (
+              <p className={stl.error}> {errors.releaseDate} </p>
+            )}
           </div>
           <div className={stl.campos}>
             <label>Rating </label>
