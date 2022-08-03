@@ -120,6 +120,7 @@ ul {
   background-color: #9896f0;
   color: whitesmoke;
   transition: 0.5s all;
+  cursor: pointer;
 }
 
 .submit:hover {

@@ -11,9 +11,8 @@ router.get("/", async (req, res) => {
   //Busco en la Api
   try {
     if (name) {
-      let sname = name.split(" ").join("-").toLowerCase();
       var apiresult = await axios.get(
-        `https://api.rawg.io/api/games?search=${sname}&key=${API_KEY}&page_size=100`
+        `https://api.rawg.io/api/games?search=${name}&key=${API_KEY}&page_size=100`
       );
       apiresult = apiresult.data.results;
     } else {
