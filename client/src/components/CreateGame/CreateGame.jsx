@@ -141,6 +141,7 @@ export default function GameCreate() {
           <div className={stl.detailsarea}>
             <label>Nombre </label>
             <input
+              key="name"
               type="text"
               value={input.name}
               name="name"
@@ -152,6 +153,7 @@ export default function GameCreate() {
           <div>
             <label>Descripción </label>
             <textarea
+              key="description"
               className={stl.description}
               type="text"
               name="description"
@@ -163,6 +165,7 @@ export default function GameCreate() {
           <div className={stl.campos}>
             <label>Imagen </label>
             <input
+              key="image"
               type="text"
               value={input.image}
               name="image"
@@ -173,6 +176,7 @@ export default function GameCreate() {
           <div className={stl.campos}>
             <label>Fecha de Lanzamiento </label>
             <input
+              key="releaseDate"
               type="date"
               name="releaseDate"
               value={input.releaseDate}
@@ -182,6 +186,7 @@ export default function GameCreate() {
           <div className={stl.campos}>
             <label>Rating </label>
             <input
+              key="rating"
               type="text"
               name="rating"
               className={stl.rating}
