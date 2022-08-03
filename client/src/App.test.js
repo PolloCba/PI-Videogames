@@ -6,7 +6,6 @@ import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import Home from "../src/components/Home/Home.jsx";
 import LandingPage from "../src/components/LandingPage/LandingPage.jsx";
 
 configure({ adapter: new Adapter() });
@@ -31,17 +30,5 @@ describe("App", () => {
       );
       expect(wrapper.find(LandingPage)).toHaveLength(1);
     });
-  });
-
-  it('El componente Home debe renderizar en la ruta /home (Sólo en la ruta "/home")', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={["/home"]}>
-          <App />
-        </MemoryRouter>
-      </Provider>
-    );
-
-    expect(wrapper.find(Home)).toHaveLength(0);
   });
 });
