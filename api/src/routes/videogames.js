@@ -27,13 +27,30 @@ router.get("/", async (req, res) => {
           const promise3 = axios.get(
             `https://api.rawg.io/api/games?key=${API_KEY}&page=3&page_size=50`
           );
+          const promise4 = axios.get(
+            `https://api.rawg.io/api/games?key=${API_KEY}&page=3&page_size=50`
+          );
+          const promise5 = axios.get(
+            `https://api.rawg.io/api/games?key=${API_KEY}&page=3&page_size=50`
+          );
+          const promise6 = axios.get(
+            `https://api.rawg.io/api/games?key=${API_KEY}&page=3&page_size=50`
+          );
 
-          await Promise.all([promise1, promise2, promise3]).then(function (
-            values
-          ) {
+          await Promise.all([
+            promise1,
+            promise2,
+            promise3,
+            promise4,
+            promise5,
+            promise6,
+          ]).then(function (values) {
             apiresult = values[0].data.results
               .concat(values[1].data.results)
-              .concat(values[2].data.results);
+              .concat(values[2].data.results)
+              .concat(values[3].data.results)
+              .concat(values[4].data.results)
+              .concat(values[5].data.results);
           });
         } catch (err) {
           console.log("Error buscando en la API: ", err);

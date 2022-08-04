@@ -16,10 +16,13 @@ function validate(input) {
   } else if (input.description.length < 8) {
     errors.description = "La descripcion debe tener al menos 8 letras";
   }
+  if (!input.image) {
+    errors.image = "Ingrese una imagen en formato URL";
+  }
   if (!input.releaseDate) {
     errors.releaseDate = "Ingrese una fecha de lanzamiento";
   } else if (
-    !/^(?:3[01]|[12][0-9]|0?[1-9])([-/.])(0?[1-9]|1[1-2])\1\d{4}$/.test(
+    !/^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/.test(
       input.releaseDate
     )
   ) {
@@ -72,17 +75,31 @@ export default function GameCreate() {
   }
 
   function handleSelect(e) {
-    setInput({
-      ...input,
-      genres: [...input.genres, e.target.value],
-    });
+    if (input.genres.includes(e.target.value)) {
+      setInput({
+        ...input,
+        genres: input.genres,
+      });
+    } else {
+      setInput({
+        ...input,
+        genres: [...input.genres, e.target.value],
+      });
+    }
   }
 
   function handlePlatforms(e) {
-    setInput({
-      ...input,
-      platforms: [...input.platforms, e.target.value],
-    });
+    if (input.platforms.includes(e.target.value)) {
+      setInput({
+        ...input,
+        platforms: input.platforms,
+      });
+    } else {
+      setInput({
+        ...input,
+        platforms: [...input.platforms, e.target.value],
+      });
+    }
   }
 
   function handleSubmit(e) {
@@ -175,13 +192,15 @@ export default function GameCreate() {
               placeholder="Ingrese la URL de la imagen"
               onChange={(e) => handleChange(e)}
             />
+            {errors.image && <p className={stl.error}> {errors.image} </p>}
           </div>
           <div className={stl.campos}>
             <label>Fecha de Lanzamiento </label>
             <input
               key="releaseDate"
-              type="date"
+              type="text"
               name="releaseDate"
+              placeholder="DD/MM/YYYY"
               value={input.releaseDate}
               onChange={(e) => handleChange(e)}
             />
@@ -201,57 +220,59 @@ export default function GameCreate() {
             />
             {errors.rating && <p className={stl.error}> {errors.rating} </p>}
           </div>
-          <div className={stl.campos}>
-            <label>Generos </label>
-            <select onChange={(e) => handleSelect(e)}>
-              <option key="genresEl">Elegir...</option>
-              {genres.map((g) => (
-                <option key={g.name} value={g.name}>
-                  {g.name}
-                </option>
-              ))}
-            </select>
-            <ul className="ul">
-              <li key={genres}>{input.genres.map((g) => g + " , ")}</li>
-            </ul>
-          </div>
-          <div className={stl.campos}>
-            <label>Plataformas </label>
-            <select onChange={handlePlatforms}>
-              <option key="platfomsEl">Elegir...</option>
-              {platforms.map((p) => (
-                <option key={p} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
-            <ul className="ul">
-              <li key={platforms}>{input.platforms.map((p) => p + " , ")}</li>
-            </ul>
-            {errors.platform && (
-              <p className={stl.error}> {errors.platform} </p>
-            )}
+          <div className={stl.camposSelect}>
+            <div className={stl.campos}>
+              <label>Generos </label>
+              <select className={stl.select} onChange={(e) => handleSelect(e)}>
+                <option key="genresEl">Elegir...</option>
+                {genres.map((g) => (
+                  <option key={g.name} value={g.name}>
+                    {g.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className={stl.campos}>
+              <label>Plataformas </label>
+              <select onChange={handlePlatforms}>
+                <option key="platfomsEl">Elegir...</option>
+                {platforms.map((p) => (
+                  <option key={p} value={p}>
+                    {p}
+                  </option>
+                ))}
+              </select>
+              {errors.platform && (
+                <p className={stl.error}> {errors.platform} </p>
+              )}
+            </div>
           </div>
           <button className={stl.submit} type="submit">
             Crear Videojuego
           </button>
         </form>
-        {input.genres.map((e) => (
-          <div>
-            <p>{e}</p>
-            <button className={stl.bot} onClick={() => handleDelete(e)}>
-              Eliminar
-            </button>
+        <div className={stl.botonesEliminar}>
+          <div className={stl.botContenedor}>
+            {input.genres.map((e) => (
+              <div className={stl.botEliminar}>
+                <p>{e}</p>
+                <button className={stl.bot} onClick={() => handleDelete(e)}>
+                  Eliminar
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-        {input.platforms.map((e) => (
-          <div>
-            <p>{e}</p>
-            <button className={stl.bot} onClick={() => handleDelete(e)}>
-              Eliminar
-            </button>
+          <div className={stl.botContenedor}>
+            {input.platforms.map((e) => (
+              <div className={stl.botEliminar}>
+                <p>{e}</p>
+                <button className={stl.bot} onClick={() => handleDelete(e)}>
+                  Eliminar
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
         <Link to="/home">
           <button className={stl.bot2}>Volver</button>
         </Link>
@@ -259,3 +280,11 @@ export default function GameCreate() {
     </div>
   );
 }
+
+// e.preventDefault();
+//     console.log(input)
+//     let arrWithoutRepeating= [...input.genre, e.target.value]
+//     setInput((input) => ({
+//       ...input,
+//       genre: [ ...new Set(arrWithoutRepeating)],
+//     })); // correcion generos repetidos

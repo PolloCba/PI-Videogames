@@ -60,9 +60,14 @@ label {
   display: flex;
   flex-direction: row;
   border: 2px solid black;
+  border-radius: 8px;
   background: transparent;
   width: 300px;
   height: 50px;
+}
+
+.select {
+  margin-right: 15px;
 }
 
 ul {
@@ -73,20 +78,25 @@ ul {
 .campos {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
+}
+
+.camposSelect {
+  display: flex;
 }
 
 .rating {
   width: 40px;
+  align-self: center;
 }
 
 .bot {
   background-color: #fbc8d5;
   color: black;
-  padding-top: 1px;
   cursor: pointer;
-  padding: 8px 24px;
   border-radius: 8px;
   transition-duration: 0.4s;
+  margin-right: 50px;
 }
 .bot:hover {
   background-color: #9896f0;
@@ -108,6 +118,22 @@ ul {
 .bot2:hover {
   background-color: #9896f0;
   color: whitesmoke;
+}
+
+.botContenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.botEliminar {
+  display: flex;
+  margin-top: 10px;
+}
+
+.botonesEliminar {
+  display: flex;
 }
 
 .submit {
