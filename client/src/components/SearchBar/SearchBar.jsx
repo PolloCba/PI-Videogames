@@ -17,7 +17,7 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!name) {
-      alert("Ingrese el nombre de un Juego");
+      alert("Enter Game Name");
     }
     dispatch(getNameGame(name));
     setName("");
@@ -28,7 +28,7 @@ export default function SearchBar() {
       <input
         className={stl.sbinput}
         type="text"
-        placeholder="Buscar Juego"
+        placeholder="Search Game"
         value={name}
         onChange={(e) => handleInputChange(e)}
       />
@@ -37,7 +37,7 @@ export default function SearchBar() {
         type="submit"
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+        Search
       </button>
     </div>
   );

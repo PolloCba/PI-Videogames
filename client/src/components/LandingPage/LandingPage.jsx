@@ -6,10 +6,9 @@ export default function LandingPage() {
   return (
     <div className={stl.container}>
       <div>
-        <h1 className={stl.title}>Welcome</h1>
         <Link to="/home">
           <button type="submit" className={stl.but}>
-            Ingresar
+            WELCOME
           </button>
         </Link>
       </div>

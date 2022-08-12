@@ -70,37 +70,26 @@ export default function Home() {
 
   return (
     <div className={stl.container}>
-      <h1>App de Videojuegos</h1>
-      <div className={stl.nav}>
-        <button
-          className={stl.hpbot}
-          onClick={(e) => {
-            handleClick(e);
-          }}
-        >
-          Recargar los Juegos de la App
-        </button>
+      <div className={stl.titulo}>
+        <h1>Videogame App</h1>
         <SearchBar />
-        <Link className={stl.hpbot} to="/videogame">
-          Crear Videojuego
-        </Link>
       </div>
-      <div>
+      <div className={stl.camposFilter}>
         <select className={stl.hpfilter} onChange={(e) => handleSortGames(e)}>
           <option key="orden" value="asc">
-            Ordenar...
+            Sort...
           </option>
           <option key="asc" value="asc">
-            Ascendente A-Z
+            Upward A-Z
           </option>
           <option key="desc" value="desc">
-            Descendente Z-A
+            Falling Z-A
           </option>
           <option key="ratingMayor" value="ratingMayor">
-            Mayor Rating
+            Best Rating
           </option>
           <option key="ratingMenor" value="ratingMenor">
-            Menor Rating
+            Worse Rating
           </option>
         </select>
         <select
@@ -108,20 +97,20 @@ export default function Home() {
           onChange={(e) => handleFilterCreated(e)}
         >
           <option key="Api+Db" value="all">
-            Api + Db...
+            Search By...
           </option>
           <option key="all" value="all">
-            Todos
+            All Games
           </option>
           <option key="created" value="created">
-            Creados
+            Created
           </option>
           <option key="api" value="api">
-            Api
+            Api Games
           </option>
         </select>
         <select className={stl.hpfilter} onChange={(e) => handleGenreFilter(e)}>
-          <option key="genres">Generos...</option>
+          <option key="genres">Genres...</option>
           {genres.map((g) => (
             <option key={g.name} value={g.name}>
               {g.name}
@@ -131,6 +120,17 @@ export default function Home() {
         <ul className="ul">
           <li key="genresLi">{input.genres.map((g) => g)}</li>
         </ul>
+        <button
+          className={stl.hpfilter}
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          Refresh All Filters
+        </button>
+        <Link className={stl.hpbot1} to="/videogame">
+          Create Game
+        </Link>
       </div>
       <Paging
         gamesPerPage={gamesPerPage}
@@ -145,8 +145,8 @@ export default function Home() {
                 <GameCard
                   name={e.name}
                   image={e.image}
-                  genres={"Generos -- " + e.genres}
-                  rating={"Rating -- " + e.rating}
+                  genres={"Genres - " + e.genres}
+                  rating={"Rating - " + e.rating}
                 />
               </Link>
             );
@@ -159,7 +159,7 @@ export default function Home() {
         />
       </div>
       <Link to="/">
-        <button className={stl.bot2}>Página de Inicio</button>
+        <button className={stl.bot2}>Back</button>
       </Link>
     </div>
   );

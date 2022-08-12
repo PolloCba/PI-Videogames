@@ -1,7 +1,6 @@
 .container {
-  background-color: #dbd5ed;
-  width: auto;
-  height: auto;
+  background-image: url("../../Imagenes/backgroun_form.jpg");
+  background-size: cover;
 }
 
 .avgwrapper {
@@ -12,25 +11,26 @@
 }
 
 h1 {
-  color: rgb(8, 7, 8);
+  color: whitesmoke;
   margin: 0px;
   padding-top: 15px;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .formarea {
-  width: 50%;
+  width: 30%;
   height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fbc8d5;
+  align-self: flex-end;
+  background-color: #747071;
   border-radius: 25px;
   margin-top: 50px;
-  margin-bottom: 50px;
-  border: 3px solid #9896f0;
-  box-shadow: 4px 3px 6px 2px #9896f0;
+  margin-right: 250px;
+  border: 3px solid whitesmoke;
+  box-shadow: 4px 3px 6px 2px whitesmoke;
 }
 
 .detailsarea {
@@ -42,16 +42,15 @@ h1 {
 .detailsarea input {
   align-items: flex-start;
   width: 300px;
-  background: transparent;
-  color: black;
+  color: whitesmoke;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid rgb(32, 30, 30);
   font-size: 20px;
   margin-bottom: 10px;
 }
 .detailsarea input,
 label {
-  color: black;
+  color: whitesmoke;
   line-height: 30px;
 }
 
@@ -59,9 +58,8 @@ label {
   margin-top: 10px;
   display: flex;
   flex-direction: row;
-  border: 2px solid black;
+  border: 2px solid rgb(32, 30, 30);
   border-radius: 8px;
-  background: transparent;
   width: 300px;
   height: 50px;
 }
@@ -91,23 +89,37 @@ ul {
 }
 
 .bot {
-  background-color: #fbc8d5;
-  color: black;
+  background-color: #222228;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
   cursor: pointer;
   border-radius: 8px;
   transition-duration: 0.4s;
   margin-right: 50px;
 }
+
+p {
+  color: whitesmoke;
+}
+
 .bot:hover {
-  background-color: #9896f0;
+  background-color: #9e2525;
   color: whitesmoke;
 }
 
 .bot2 {
-  background-color: #fbc8d5;
+  background-color: #747071;
   color: black;
-  margin-top: 60px;
-  margin-bottom: 50px;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100px;
+  margin-top: 30px;
+  margin-bottom: 34px;
   padding-top: 1px;
   cursor: pointer;
   text-align: center;
@@ -116,8 +128,9 @@ ul {
   transition-duration: 0.4s;
 }
 .bot2:hover {
-  background-color: #9896f0;
+  background-color: #222228;
   color: whitesmoke;
+  font-weight: bold;
 }
 
 .botContenedor {
@@ -130,20 +143,24 @@ ul {
 .botEliminar {
   display: flex;
   margin-top: 10px;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .botonesEliminar {
   display: flex;
+  margin-left: 25px;
 }
 
 .submit {
   margin-top: 80px;
   margin-bottom: 20px;
   align-self: center;
-  width: 15%;
-  height: 50px;
+  width: 100px;
+  height: 30px;
   border-radius: 8px;
-  background-color: #9896f0;
+  background-color: #222228;
   color: whitesmoke;
   transition: 0.5s all;
   cursor: pointer;
@@ -151,7 +168,8 @@ ul {
 
 .submit:hover {
   transform: scale(1.1);
-  color: black;
+  color: whitesmoke;
+  background-color: #1c680c;
 }
 
 .error {

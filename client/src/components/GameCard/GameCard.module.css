@@ -7,18 +7,13 @@
   margin: 0;
 }
 .card {
-  background-color: #fbc8d5;
-  width: 450px;
-  height: 450px;
+  background-color: #747071;
+  width: 400px;
+  height: 420px;
   margin: 5px;
   padding: 1px;
-  border: 2px solid #9896f0;
+  border: 2px solid whitesmoke;
   border-radius: 10px;
-}
-
-.card:hover {
-  background-color: #9896f0;
-  border: 2px solid #fbc8d5;
 }
 
 h4 {
@@ -29,11 +24,11 @@ h4 {
 p {
   margin: 5px;
   padding: 1px;
-  color: black;
+  color: whitesmoke;
 }
 
 span {
-  color: black;
+  color: whitesmoke;
 }
 .imag {
   width: 380px;

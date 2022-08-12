@@ -1,13 +1,21 @@
 .container {
-  background-color: #dbd5ed;
+  background-image: url("../../Imagenes/backgroun_home.jpg");
 }
 
-.nav {
+.titulo {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-left: 15px;
+}
+
+.camposFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 50px;
 }
 
 .c1 {
@@ -55,7 +63,7 @@
 
 .hpbot {
   text-align: center;
-  background-color: #fbc8d5;
+  background-color: whitesmoke;
   color: black;
   padding-top: 1px;
   cursor: pointer;
@@ -67,8 +75,30 @@
   text-decoration: none;
 }
 .hpbot:hover {
-  background-color: #9896f0;
+  background-color: #747071;
   color: whitesmoke;
+}
+
+.hpbot1 {
+  text-align: center;
+  background-color: whitesmoke;
+  color: black;
+  padding-top: 1px;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px 24px;
+  border: 1px solid black;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  margin-left: 550px;
+  transition: 0.5s all;
+}
+
+.hpbot1:hover {
+  background-color: #747071;
+  color: whitesmoke;
+  transform: scale(1.5);
 }
 
 .hpfilter {
@@ -78,14 +108,14 @@
   border-radius: 10px;
   margin-right: 10px;
   width: 150px;
-  height: 40px;
-  background-color: #fbc8d5;
+  height: 30px;
+  background-color: whitesmoke;
   cursor: pointer;
   transition-duration: 0.4s;
 }
 
 .hpfilter:hover {
-  background-color: #9896f0;
+  background-color: #747071;
   color: whitesmoke;
 }
 
@@ -104,7 +134,7 @@
 }
 
 .bot2 {
-  background-color: #fbc8d5;
+  background-color: whitesmoke;
   color: black;
   margin-top: 60px;
   margin-bottom: 50px;
@@ -116,6 +146,6 @@
   transition-duration: 0.4s;
 }
 .bot2:hover {
-  background-color: #9896f0;
+  background-color: #747071;
   color: whitesmoke;
 }

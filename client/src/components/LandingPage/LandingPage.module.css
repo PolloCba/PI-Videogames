@@ -1,34 +1,31 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  background-image: url("../../Imagenes/Mario.jpg");
+  background-image: url("../../Imagenes/background.jpg");
   background-size: cover;
 }
 
-.title {
-  padding-top: 20px;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .but {
-  height: 50px;
-  width: 150px;
-  color: black;
-  font-size: 20px;
+  height: 40px;
+  width: 140px;
+  color: whitesmoke;
+  font-size: 18px;
   font-weight: bold;
-  background-color: rgb(211, 35, 58);
-  margin-top: 60px;
+  background-color: rgb(84 76 77);
   border-radius: 10px;
-  box-shadow: 3px 2px 5px 1px rgb(255, 255, 255);
+  box-shadow: 5px 5px 5px 1px rgb(255 255 255);
   animation: myAnim 2s ease 0s infinite normal forwards;
 }
 .but:hover {
   cursor: pointer;
   font-style: italic;
-  background-color: rgb(230, 20, 20);
-  color: #fff;
-  box-shadow: 3px 2px 10px 1px rgb(0, 0, 0);
+  font-size: 18px;
+  background-color: rgb(228, 222, 222);
+  color: rgb(84 76 77);
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 1px rgb(255 255 255);
 }
 
 @keyframes myAnim {

@@ -4,7 +4,7 @@
   padding-right: 55px;
 }
 .sbbot {
-  background-color: #fbc8d5;
+  background-color: whitesmoke;
   color: black;
   padding-top: 1px;
   cursor: pointer;
@@ -14,11 +14,11 @@
   transition-duration: 0.4s;
 }
 .sbbot:hover {
-  background-color: #9896f0;
+  background-color: #747071;
   color: whitesmoke;
 }
 .sbinput {
-  background-color: #fbc8d5;
+  background-color: whitesmoke;
   margin-right: 10px;
   border: 2px solid black;
   width: 250px;

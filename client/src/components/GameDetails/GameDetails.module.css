@@ -1,17 +1,19 @@
 .wrapper {
+  color: whitesmoke;
   display: flex;
   margin: 0px;
   right: 20% auto;
 }
 .detimg {
   align-self: center;
-  width: 80%;
-  height: 50%;
+  width: 600px;
+  height: 451px;
   border-radius: 10px;
 }
 .contarea {
+  background-image: url("../../Imagenes/backgroun_details.jpg");
+  background-size: cover;
   display: flex;
-  background-color: #fbc8d5;
   flex-direction: column;
   justify-content: flex-start;
   margin: 0px;
@@ -19,7 +21,7 @@
 }
 
 h3 {
-  color: black;
+  color: whitesmoke;
   display: flex;
   justify-content: space-around;
   align-content: space-around;
@@ -28,6 +30,7 @@ h3 {
 }
 
 h5 {
+  color: whitesmoke;
   width: 80%;
   align-self: center;
 }
@@ -39,17 +42,17 @@ p {
   margin-top: 15px;
 }
 .botback {
-  padding: 1em;
   margin-top: 25px;
-  background: #9896f0;
+  background: #747071;
   color: whitesmoke;
-  border: 1;
+  margin-bottom: 10px;
+  width: 100px;
   height: 40px;
-  border-color: black;
-  padding: 10px 50px;
-  border-radius: 35px;
+  border-radius: 15px;
   font-family: poppins;
-  font-size: 16px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;

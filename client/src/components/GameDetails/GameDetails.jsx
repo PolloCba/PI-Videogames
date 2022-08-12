@@ -26,18 +26,18 @@ export default function Detail(props) {
           src={myGame.background_image ? myGame.background_image : myGame.image}
           alt="Not found"
         ></img>
-        <h3>Descripción</h3>
+        <h3>Description</h3>
         <h5>{myGame.description}</h5>
         <div className={stl.lineflex}>
           <h4>{`Rating:   ${myGame.rating}`} </h4>
         </div>
         <div className={stl.lineflex}>
-          <h4>{`Fecha de Lanzamiento:  ${myGame.releaseDate}`} </h4>
+          <h4>{`Release Date:  ${myGame.releaseDate}`} </h4>
         </div>
-        <h4>{`Plataformas:  ${myGame.platforms}`}</h4>
-        <h4>{`Generos: ${myGame.genres}`}</h4>
+        <h4>{`Platforms:  ${myGame.platforms}`}</h4>
+        <h4>{`Genres: ${myGame.genres}`}</h4>
         <Link to="/home">
-          <button className={stl.botback}>Volver</button>
+          <button className={stl.botback}>Back</button>
         </Link>
       </div>
     </div>

@@ -7,31 +7,31 @@ import stl from "./CreateGame.module.css";
 function validate(input) {
   let errors = {};
   if (!input.name) {
-    errors.name = "Nombre del juego requerido";
+    errors.name = "Name is required";
   } else if (input.name.length < 4) {
-    errors.name = "El juego debe tener al menos 4 letras";
+    errors.name = "Name must have at least 4 characters";
   }
   if (!input.description) {
-    errors.description = "Descripcion del juego requerida";
+    errors.description = "Description required";
   } else if (input.description.length < 8) {
-    errors.description = "La descripcion debe tener al menos 8 letras";
+    errors.description = "Description must have at least 8 characters";
   }
   if (!input.image) {
-    errors.image = "Ingrese una imagen en formato URL";
+    errors.image = "Image required. URL format.";
   }
   if (!input.releaseDate) {
-    errors.releaseDate = "Ingrese una fecha de lanzamiento";
+    errors.releaseDate = "Release Date required";
   } else if (
     !/^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/.test(
       input.releaseDate
     )
   ) {
-    errors.releaseDate = "Ingrese un formato y fecha valida";
+    errors.releaseDate = "Enter a format and valid date";
   }
   if (!input.rating) {
-    errors.rating = "El rating es requerido";
+    errors.rating = "Rating is required";
   } else if (!/^[0-5]+([.][0-9]+)?$/.test(input.rating)) {
-    errors.rating = "El rating debe ser entre 0 - 5";
+    errors.rating = "Rating must be between 0 - 5";
   }
   return errors;
 }
@@ -105,31 +105,31 @@ export default function GameCreate() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!input.name) {
-      return alert("Ingrese un nombre");
+      return alert("Enter a Name for the game");
     }
     if (!input.description) {
-      return alert("Ingrese una descripción");
+      return alert("Enter a Description for the game");
     }
     if (!input.image) {
-      return alert("Ingrese alguna imagen para el juego");
+      return alert("Enter a Image for the game");
     }
     if (!input.releaseDate) {
-      return alert("Ingrese una fecha de lanzamiento");
+      return alert("Enter a Release Date for the game");
     }
     if (!input.rating) {
-      return alert("Ingrese el rating");
+      return alert("Enter Rating of the game");
     }
     if (input.rating < 0 || input.rating > 5) {
-      return alert("Ingrese un rating valido");
+      return alert("Enter a valid Rating");
     }
     if (input.genres.length === 0) {
-      return alert("Ingrese algun genero");
+      return alert("Enter Genres of the game");
     }
     if (input.platforms.length === 0) {
-      return alert("Ingrese alguna plataforma");
+      return alert("Enter Platforms of the game");
     }
     dispatch(postGame(input));
-    alert("Juego Creado!!!");
+    alert("Game Created successfully!!!");
     setInput({
       name: "",
       description: "",
@@ -153,28 +153,28 @@ export default function GameCreate() {
   return (
     <div className={stl.container}>
       <div className={stl.avgwrapper}>
-        <h1 className={stl.h1}>Crea tu Juego</h1>
+        <h1 className={stl.h1}>Create Your Game</h1>
         <form className={stl.formarea} onSubmit={handleSubmit}>
           <div className={stl.detailsarea}>
-            <label>Nombre </label>
+            <label>Name </label>
             <input
               key="name"
               type="text"
               value={input.name}
               name="name"
-              placeholder="Ingrese nombre del juego"
+              placeholder="Enter the game Name"
               onChange={(e) => handleChange(e)}
             />
             {errors.name && <p className={stl.error}> {errors.name} </p>}
           </div>
           <div>
-            <label>Descripción </label>
+            <label>Description </label>
             <textarea
               key="description"
               className={stl.description}
               type="text"
               name="description"
-              placeholder="Ingrese descripcion del juego"
+              placeholder="Enter the game Description"
               value={input.description}
               onChange={(e) => handleChange(e)}
             />
@@ -183,19 +183,19 @@ export default function GameCreate() {
             )}
           </div>
           <div className={stl.campos}>
-            <label>Imagen </label>
+            <label>Image </label>
             <input
               key="image"
               type="text"
               value={input.image}
               name="image"
-              placeholder="Ingrese la URL de la imagen"
+              placeholder="Enter the URL Image"
               onChange={(e) => handleChange(e)}
             />
             {errors.image && <p className={stl.error}> {errors.image} </p>}
           </div>
           <div className={stl.campos}>
-            <label>Fecha de Lanzamiento </label>
+            <label>Release Date </label>
             <input
               key="releaseDate"
               type="text"
@@ -222,9 +222,9 @@ export default function GameCreate() {
           </div>
           <div className={stl.camposSelect}>
             <div className={stl.campos}>
-              <label>Generos </label>
+              <label>Genres </label>
               <select className={stl.select} onChange={(e) => handleSelect(e)}>
-                <option key="genresEl">Elegir...</option>
+                <option key="genresEl">Chose...</option>
                 {genres.map((g) => (
                   <option key={g.name} value={g.name}>
                     {g.name}
@@ -233,9 +233,9 @@ export default function GameCreate() {
               </select>
             </div>
             <div className={stl.campos}>
-              <label>Plataformas </label>
+              <label>Platforms </label>
               <select onChange={handlePlatforms}>
-                <option key="platfomsEl">Elegir...</option>
+                <option key="platfomsEl">Chose...</option>
                 {platforms.map((p) => (
                   <option key={p} value={p}>
                     {p}
@@ -247,34 +247,34 @@ export default function GameCreate() {
               )}
             </div>
           </div>
+          <div className={stl.botonesEliminar}>
+            <div className={stl.botContenedor}>
+              {input.genres.map((e) => (
+                <div className={stl.botEliminar}>
+                  <p>{e}</p>
+                  <button className={stl.bot} onClick={() => handleDelete(e)}>
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className={stl.botContenedor}>
+              {input.platforms.map((e) => (
+                <div className={stl.botEliminar}>
+                  <p>{e}</p>
+                  <button className={stl.bot} onClick={() => handleDelete(e)}>
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
           <button className={stl.submit} type="submit">
-            Crear Videojuego
+            Create Game
           </button>
         </form>
-        <div className={stl.botonesEliminar}>
-          <div className={stl.botContenedor}>
-            {input.genres.map((e) => (
-              <div className={stl.botEliminar}>
-                <p>{e}</p>
-                <button className={stl.bot} onClick={() => handleDelete(e)}>
-                  Eliminar
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className={stl.botContenedor}>
-            {input.platforms.map((e) => (
-              <div className={stl.botEliminar}>
-                <p>{e}</p>
-                <button className={stl.bot} onClick={() => handleDelete(e)}>
-                  Eliminar
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
         <Link to="/home">
-          <button className={stl.bot2}>Volver</button>
+          <button className={stl.bot2}>Back</button>
         </Link>
       </div>
     </div>
