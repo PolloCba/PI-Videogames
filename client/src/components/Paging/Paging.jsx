@@ -11,6 +11,7 @@ export default function Paging({ gamesPerPage, allGames, paging }) {
   return (
     <nav>
       <ul className={stl.pagination}>
+        <p className={stl.pPagination}>Pages</p>
         {pageNumbers &&
           pageNumbers.map((number) => (
             <li className={stl.pagenr} key={number}>
