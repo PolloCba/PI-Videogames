@@ -1,3 +1,16 @@
+.navPagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #747071;
+  margin-left: 270px;
+  margin-right: 240px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+}
+
 .pagination {
   display: flex;
   flex-direction: row;

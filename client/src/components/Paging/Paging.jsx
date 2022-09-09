@@ -9,7 +9,7 @@ export default function Paging({ gamesPerPage, allGames, paging }) {
     pageNumbers.push(i);
   }
   return (
-    <nav>
+    <nav className={stl.navPagination}>
       <ul className={stl.pagination}>
         <p className={stl.pPagination}>Pages</p>
         {pageNumbers &&
