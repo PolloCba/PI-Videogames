@@ -9,6 +9,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 15px;
+  border: 2px solid whitesmoke;
 }
 
 .pagination {
