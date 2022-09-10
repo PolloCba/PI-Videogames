@@ -14,6 +14,7 @@ import GameCard from "../GameCard/GameCard.jsx";
 import Paging from "../Paging/Paging.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import stl from "../Home/Home.module.css";
+import Footer from "../Footer/Footer.jsx";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -161,6 +162,7 @@ export default function Home() {
       <Link to="/">
         <button className={stl.bot2}>Back</button>
       </Link>
+      <Footer />
     </div>
   );
 }
